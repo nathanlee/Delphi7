@@ -1,0 +1,39 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = PSAM.exe Analyzer.exe Attendance.exe Logo.exe Mainten.exe InstDB.exe \
+  RegCode.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+PSAM.exe: Stock\PSAM.dpr
+  $(DCC)
+
+Analyzer.exe: Analyzer\Analyzer.dpr
+  $(DCC)
+
+Attendance.exe: Attendance\Attendance.dpr
+  $(DCC)
+
+Logo.exe: MainLogo\Logo.dpr
+  $(DCC)
+
+Mainten.exe: mainten\Mainten.dpr
+  $(DCC)
+
+InstDB.exe: InstDB\InstDB.dpr
+  $(DCC)
+
+RegCode.exe: RegCode\RegCode.dpr
+  $(DCC)
+
+
